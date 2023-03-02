@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 style="text-align:center">Login Page</h3>
+      <br>
+      <div style="text-align: center;">
+        <form [formGroup]="signUp" (ngSubmit)="onSubmit()" style="max-width:700px;margin:auto">
+          <div formGroupName="userData">
+            <div class="form-group">
+              <ibm-label>UserName
+                <input ibmText type="email" name="username" formControlName="username" />
+
+              </ibm-label>
+              <span *ngIf="
+                !signUp.get('userData.username').valid &&
+                signUp.get('userData.username').touched
+              " class="help-block">Please enter the valid username!</span>
+            </div>
+            <div class="form-group">
+              <ibm-label>Password:
+                <input ibmText type="password" name="password" formControlName="password"/>
+                <span class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></span>
+
+              </ibm-label>
+
+              <span *ngIf="
+                !signUp.get('userData.password').valid &&
+                signUp.get('userData.password').touched
+              " class="help-block">Please enter the valid Password!</span>
+              <br>
+              <button ibmButton="tertiary" [ibmIcon]="accessibility" float:right type="button">submit</button>
+              <!--<button ibmButton="tertiary" [ibmIcon]="VisualRecognition" type="submit">submit</button>-->
+
+            </div>
+          </div>
+
+          <!--<span *ngIf="!signUp.valid && signUp.touched" class="help-block"
+          >Please enter the valid Data!</span> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
